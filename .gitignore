@@ -49,7 +49,11 @@ yarn-error.log*
 .cache/
 .npm/
 .yarn/
+frontend/node_modules/.cache/
 
 # Temporary files
 *.tmp
 *.temp
+
+# Kiro files
+.kiro/

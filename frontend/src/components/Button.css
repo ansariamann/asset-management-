@@ -1,0 +1,144 @@
+@import "../styles/variables.css";
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+  font-weight: var(--font-weight-medium);
+  transition: var(--transition-base);
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none;
+  position: relative;
+  white-space: nowrap;
+}
+
+/* Button sizes */
+.btn-small {
+  padding: var(--spacing-1) var(--spacing-2);
+  font-size: var(--font-size-sm);
+  height: 32px;
+}
+
+.btn-medium {
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-base);
+  height: 40px;
+}
+
+.btn-large {
+  padding: var(--spacing-3) var(--spacing-5);
+  font-size: var(--font-size-lg);
+  height: 48px;
+}
+
+/* Button variants */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+.btn-secondary {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-background-alt);
+}
+
+.btn-secondary:focus {
+  box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.25);
+  outline: none;
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  color: var(--color-white);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: var(--color-danger-dark);
+}
+
+.btn-danger:focus {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.25);
+  outline: none;
+}
+
+.btn-text {
+  background-color: transparent;
+  color: var(--color-primary);
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+}
+
+.btn-text:hover:not(:disabled) {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.btn-text:focus {
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  outline: none;
+}
+
+/* Disabled state */
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Loading state */
+.btn-loading {
+  cursor: wait;
+}
+
+.btn-spinner {
+  display: inline-block;
+  margin-right: var(--spacing-2);
+  width: 16px;
+  height: 16px;
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon-left {
+  margin-right: var(--spacing-2);
+}
+
+.btn-icon-right {
+  margin-left: var(--spacing-2);
+}
+
+.btn-full-width {
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .btn-large {
+    height: 44px;
+    padding: var(--spacing-2) var(--spacing-4);
+  }
+}

@@ -1,0 +1,80 @@
+@import "../styles/variables.css";
+
+.error-boundary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: var(--spacing-6);
+  text-align: center;
+}
+
+.error-boundary-content {
+  max-width: 600px;
+  background-color: var(--color-background);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--color-border);
+}
+
+.error-boundary-title {
+  color: var(--color-danger);
+  margin-bottom: var(--spacing-4);
+  font-size: var(--font-size-xl);
+}
+
+.error-boundary-message {
+  margin-bottom: var(--spacing-4);
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+}
+
+.error-boundary-details {
+  background-color: var(--color-danger-light);
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+  text-align: left;
+  border-left: 4px solid var(--color-danger);
+}
+
+.error-name {
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-2);
+  color: var(--color-danger-dark);
+}
+
+.error-message {
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--color-danger-dark);
+}
+
+.error-boundary-actions {
+  display: flex;
+  gap: var(--spacing-3);
+  justify-content: center;
+  margin-top: var(--spacing-4);
+}
+
+@media (max-width: 768px) {
+  .error-boundary-container {
+    padding: var(--spacing-4);
+  }
+
+  .error-boundary-content {
+    padding: var(--spacing-4);
+  }
+
+  .error-boundary-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .error-boundary-actions button {
+    width: 100%;
+  }
+}

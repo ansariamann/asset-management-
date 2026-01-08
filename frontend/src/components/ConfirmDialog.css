@@ -1,0 +1,216 @@
+@import "../styles/variables.css";
+
+.confirm-dialog-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-index-modal-backdrop);
+  padding: var(--spacing-5);
+  animation: backdropFadeIn 0.2s ease-out;
+}
+
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.confirm-dialog {
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: dialogSlideIn 0.2s ease-out;
+  z-index: var(--z-index-modal);
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes dialogSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.confirm-dialog-header {
+  padding: var(--spacing-5) var(--spacing-5) var(--spacing-4) var(--spacing-5);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.confirm-dialog-header h2 {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-900);
+  font-weight: var(--font-weight-bold);
+}
+
+.confirm-dialog-body {
+  padding: var(--spacing-4) var(--spacing-5);
+  flex: 1;
+  overflow-y: auto;
+}
+
+.confirm-dialog-body p {
+  margin: 0;
+  color: var(--color-gray-700);
+  line-height: var(--line-height-base);
+  font-size: var(--font-size-base);
+}
+
+.confirm-dialog-actions {
+  padding: var(--spacing-4) var(--spacing-5) var(--spacing-5) var(--spacing-5);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-3);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.cancel-button {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  border: none;
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  transition: var(--transition-base);
+  min-width: 100px;
+}
+
+.cancel-button:hover {
+  background-color: var(--color-secondary-dark);
+}
+
+.cancel-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.25);
+}
+
+.cancel-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.confirm-button {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  transition: var(--transition-base);
+  min-width: 100px;
+}
+
+.confirm-button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.confirm-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.confirm-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.confirm-button.destructive {
+  background: var(--color-danger);
+}
+
+.confirm-button.destructive:hover {
+  background-color: var(--color-danger-dark);
+}
+
+.confirm-button.destructive:focus {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.25);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .confirm-dialog-backdrop {
+    padding: var(--spacing-4);
+  }
+
+  .confirm-dialog {
+    max-width: 450px;
+  }
+
+  .confirm-dialog-header {
+    padding: var(--spacing-4) var(--spacing-4) var(--spacing-3) var(--spacing-4);
+  }
+
+  .confirm-dialog-body {
+    padding: var(--spacing-3) var(--spacing-4);
+  }
+
+  .confirm-dialog-actions {
+    padding: var(--spacing-3) var(--spacing-4) var(--spacing-4) var(--spacing-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .confirm-dialog-backdrop {
+    padding: var(--spacing-3);
+    align-items: flex-end;
+  }
+
+  .confirm-dialog {
+    margin: 0;
+    max-width: none;
+    width: 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    max-height: 80vh;
+    animation: dialogSlideUp 0.3s ease-out;
+  }
+
+  @keyframes dialogSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .confirm-dialog-actions {
+    flex-direction: column-reverse;
+    gap: var(--spacing-2);
+  }
+
+  .cancel-button,
+  .confirm-button {
+    width: 100%;
+    padding: var(--spacing-3) var(--spacing-4);
+    min-width: auto;
+  }
+
+  .confirm-dialog-header h2 {
+    font-size: var(--font-size-base);
+  }
+}

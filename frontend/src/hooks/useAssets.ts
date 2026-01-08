@@ -137,7 +137,12 @@ export const useCreateAsset = (): UseCreateAssetResult => {
         return response;
       } catch (err) {
         if (err instanceof ApiException) {
-          setError(err.message);
+          if (err.details && Array.isArray(err.details)) {
+            const messages = err.details.map((d: any) => d.msg).join(", ");
+            setError(`${err.message}: ${messages}`);
+          } else {
+            setError(err.message);
+          }
         } else {
           setError("Failed to create asset");
         }
@@ -179,7 +184,12 @@ export const useUpdateAsset = (): UseUpdateAssetResult => {
         return response;
       } catch (err) {
         if (err instanceof ApiException) {
-          setError(err.message);
+          if (err.details && Array.isArray(err.details)) {
+            const messages = err.details.map((d: any) => d.msg).join(", ");
+            setError(`${err.message}: ${messages}`);
+          } else {
+            setError(err.message);
+          }
         } else {
           setError("Failed to update asset");
         }

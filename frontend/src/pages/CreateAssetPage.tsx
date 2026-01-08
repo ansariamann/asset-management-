@@ -30,7 +30,15 @@ export const CreateAssetPage: React.FC = () => {
 
       {error && (
         <div className="error-banner">
-          <p>{error}</p>
+          {Array.isArray(error) ? (
+            <ul>
+              {error.map((err, index) => (
+                <li key={index}>{err.msg || JSON.stringify(err)}</li>
+              ))}
+            </ul>
+          ) : (
+            <p>{error}</p>
+          )}
         </div>
       )}
 

@@ -92,8 +92,7 @@ export const AssetForm: React.FC<AssetFormProps> = ({
         break;
 
       case "category":
-        if (!value.trim()) return "Category is required";
-        if (value.length > 100)
+        if (value && value.length > 100)
           return "Category must be less than 100 characters";
         break;
 
@@ -209,7 +208,7 @@ export const AssetForm: React.FC<AssetFormProps> = ({
       const submitData: CreateAssetRequest | UpdateAssetRequest = {
         name: formData.name.trim(),
         description: formData.description.trim(),
-        category: formData.category.trim(),
+        category: formData.category.trim() || undefined,
         serialNumber: formData.serialNumber.trim(),
         purchaseDate: formData.purchaseDate,
         purchasePrice: parseFloat(formData.purchasePrice),
@@ -289,9 +288,8 @@ export const AssetForm: React.FC<AssetFormProps> = ({
             value={formData.description}
             onChange={handleInputChange}
             onBlur={handleBlur}
-            className={`form-textarea ${
-              getFieldError("description") ? "error" : ""
-            }`}
+            className={`form-textarea ${getFieldError("description") ? "error" : ""
+              }`}
             placeholder="Enter asset description (optional)"
             rows={3}
             disabled={loading}
@@ -305,7 +303,7 @@ export const AssetForm: React.FC<AssetFormProps> = ({
 
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="category" className="form-label required">
+            <label htmlFor="category" className="form-label">
               Category
             </label>
             <select
@@ -314,13 +312,11 @@ export const AssetForm: React.FC<AssetFormProps> = ({
               value={formData.category}
               onChange={handleInputChange}
               onBlur={handleBlur}
-              className={`form-select ${
-                getFieldError("category") ? "error" : ""
-              }`}
+              className={`form-select ${getFieldError("category") ? "error" : ""
+                }`}
               disabled={loading || categoriesLoading}
-              required
             >
-              <option value="">Select a category</option>
+              <option value="">Select a category (optional)</option>
               {categories.map((cat) => (
                 <option key={cat} value={cat}>
                   {cat}
@@ -342,9 +338,8 @@ export const AssetForm: React.FC<AssetFormProps> = ({
               value={formData.status}
               onChange={handleInputChange}
               onBlur={handleBlur}
-              className={`form-select ${
-                getFieldError("status") ? "error" : ""
-              }`}
+              className={`form-select ${getFieldError("status") ? "error" : ""
+                }`}
               disabled={loading}
               required
             >
@@ -371,9 +366,8 @@ export const AssetForm: React.FC<AssetFormProps> = ({
             value={formData.serialNumber}
             onChange={handleInputChange}
             onBlur={handleBlur}
-            className={`form-input ${
-              getFieldError("serialNumber") ? "error" : ""
-            }`}
+            className={`form-input ${getFieldError("serialNumber") ? "error" : ""
+              }`}
             placeholder="Enter serial number"
             disabled={loading}
             required
@@ -397,9 +391,8 @@ export const AssetForm: React.FC<AssetFormProps> = ({
               value={formData.purchaseDate}
               onChange={handleInputChange}
               onBlur={handleBlur}
-              className={`form-input ${
-                getFieldError("purchaseDate") ? "error" : ""
-              }`}
+              className={`form-input ${getFieldError("purchaseDate") ? "error" : ""
+                }`}
               disabled={loading}
               required
             />
@@ -421,9 +414,8 @@ export const AssetForm: React.FC<AssetFormProps> = ({
               value={formData.purchasePrice}
               onChange={handleInputChange}
               onBlur={handleBlur}
-              className={`form-input ${
-                getFieldError("purchasePrice") ? "error" : ""
-              }`}
+              className={`form-input ${getFieldError("purchasePrice") ? "error" : ""
+                }`}
               placeholder="0.00"
               min="0"
               step="0.01"

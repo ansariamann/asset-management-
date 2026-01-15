@@ -16,7 +16,7 @@ class Asset(Base):
   id = Column(Integer, primary_key=True, index=True)
   name = Column(String(255), nullable=False)
   description = Column(Text)
-  category = Column(String(100), nullable=False)
+  category = Column(String(100), nullable=True)
   serial_number = Column(String(100), unique=True, nullable=False, index=True)
   purchase_date = Column(Date, nullable=False)
   purchase_price = Column(Numeric(10, 2), nullable=False)

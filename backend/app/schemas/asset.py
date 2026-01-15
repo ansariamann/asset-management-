@@ -7,7 +7,7 @@ from ..models.asset import AssetStatus
 class AssetBase(BaseModel):
   name: str = Field(..., min_length=1, max_length=255)
   description: Optional[str] = None
-  category: str = Field(..., min_length=1, max_length=100)
+  category: Optional[str] = Field(None, min_length=1, max_length=100)
   serial_number: str = Field(..., min_length=1, max_length=100)
   purchase_date: date
   purchase_price: Decimal = Field(..., gt=0)

@@ -2,7 +2,7 @@ export interface Asset {
   id: number;
   name: string;
   description: string;
-  category: string;
+  category?: string;
   serialNumber: string;
   purchaseDate: string;
   purchasePrice: number;
@@ -14,7 +14,7 @@ export interface Asset {
 export interface CreateAssetRequest {
   name: string;
   description: string;
-  category: string;
+  category?: string;
   serialNumber: string;
   purchaseDate: string;
   purchasePrice: number;
@@ -24,7 +24,7 @@ export interface CreateAssetRequest {
 export interface UpdateAssetRequest {
   name: string;
   description: string;
-  category: string;
+  category?: string;
   serialNumber: string;
   purchaseDate: string;
   purchasePrice: number;
